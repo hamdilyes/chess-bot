@@ -147,6 +147,10 @@ activemq-data/
 # SageMath parsed files
 *.sage.py
 
+# chessbot artifacts (downloaded games, datasets, trained models)
+data/
+models/
+
 # Environments
 .env
 .envrc

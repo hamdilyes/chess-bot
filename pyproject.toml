@@ -1,0 +1,36 @@
+[project]
+name = "chessbot"
+version = "0.1.0"
+description = "A chess bot that imitates a specific lichess player by behavioral cloning on their games."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "chess>=1.11.0",
+    "torch>=2.2.0",
+    "numpy>=1.26.0",
+    "tqdm>=4.66.0",
+    "requests>=2.31.0",
+    "berserk>=0.13.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+chessbot-download = "chessbot.download:main"
+chessbot-dataset = "chessbot.dataset:main"
+chessbot-train = "chessbot.train:main"
+chessbot-bot = "chessbot.lichess_bot:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chessbot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
